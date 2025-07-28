@@ -1,5 +1,5 @@
 # Stage 1: Builder stage
-FROM python:3.11-slim AS builder
+FROM python:3.14.0rc1-slim AS builder
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
   tk \
@@ -15,7 +15,7 @@ COPY . .
 RUN pip install --no-cache-dir -e .
 
 # Stage 2: Final stage
-FROM python:3.11-slim
+FROM python:3.14.0rc1-slim
 
 WORKDIR /app
 
